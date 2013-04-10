@@ -70,9 +70,9 @@ $accessmanager = $attemptobj->get_access_manager($timenow);
 $timeclose = $accessmanager->get_end_time($attemptobj->get_attempt());
 
 // Don't enforce timeclose for previews
-if ($attemptobj->is_preview()) {
-    $timeclose = false;
-}
+/*if ($attemptobj->is_preview()) {
+    $timeclose = false;   		//code updated to solve tracker issue MDL 37514 
+}*/
 $toolate = false;
 if ($timeclose !== false && $timenow > $timeclose - QUIZ_MIN_TIME_TO_CONTINUE) {
     $timeup = true;
